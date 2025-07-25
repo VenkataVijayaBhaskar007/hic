@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Responsive Image Slider</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Bootstrap 3 CDN -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+  <!-- Font Awesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    .section-title {
+      color: #B78D65;
+      font-size: xx-large;    
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      font-family: "Teko", sans-serif;
+    }
+
+    section#slider {
+      width: 100%;
+    }
+
+    section#slider span.nowrap {
+      white-space: nowrap;
+    }
+
+    section#slider .slider-wrapper {
+      padding: 0;
+    }
+
+    section#slider .scroll-wrapper {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    section#slider ul {
+      padding: 0;
+      width: max-content;
+      margin: 0;
+    }
+
+    section#slider li.slider {
+      display: inline-block;
+      position: relative;
+      width: 24.6vw;
+    }
+
+    section#slider li.slider img {
+      margin: 5px 10px 0 0;
+      display: block;
+      height: auto;
+      max-width: 100%;
+    }
+
+    section#slider span.slider-name,
+    span.slider-title {
+      display: block;
+      position: absolute;
+      color: #fff;
+      left: 2vw;
+    }
+
+    section#slider span.slider-name {
+      font-weight: 900;
+      bottom: 4vw;
+      font-size: 1.5vw;
+    }
+
+    section#slider span.slider-title {
+      font-weight: 100;
+      bottom: 2.5vw;
+      font-size: 1.3vw;
+    }
+
+    section#slider .more-slider {
+      padding: 1vh 5% 0;
+    }
+
+    section#slider .more-slider h4 {
+      color: #B78D65;
+      font-weight: 600;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+    }
+
+    section#slider .more-slider p {
+      font-size: large;
+      color: grey;
+    }
+
+    section#slider .slide-controls {
+      color: #5896b0;
+      font-weight: 300;
+    }
+
+    section#slider .slide-controls span.slider-previous {
+      margin-right: 75px;
+    }
+
+    section#slider .slide-controls i {
+      font-size: 26px;
+    }
+
+    section#slider .more-slider a.button {
+      border: 1px solid #5896b0;
+      max-width: 200px;
+      color: #5896b0;
+      margin-top: 6vw;
+    }
+
+    section#slider .more-slider a.button:hover {
+      color: #fff;
+    }
+
+    section#slider .more-slider a.button:before {
+      background: #5896b0;
+    }
+
+    @media (max-width: 991px) {
+      section#slider .more-slider {
+        padding: 1vh 3% 0;
+      }
+
+      section#slider .more-slider h4 {
+        font-size: 5vw;
+        padding: 0 0 15px 0;
+      }
+
+      section#slider .slider-wrapper {
+        width: 50%;
+      }
+
+      section#slider .content {
+        padding: 35px;
+      }
+
+      section#slider .more-slider a.button {
+        margin-top: 4vw;
+        max-width: 175px;
+        font-size: 15px;
+        padding: 5px 0;
+      }
+    }
+
+    @media (max-width: 768px) {
+      section#slider .area {
+        padding-right: 0;
+        padding-left: 0;
+      }
+
+      section#slider .slider-wrapper {
+        width: 100%;
+      }
+
+      section#slider .scroll-wrapper {
+        overflow-x: scroll;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      section#slider li.slider {
+        width: 49.2vw;
+      }
+
+      section#slider span.slider-title {
+        bottom: 3.5vw;
+        font-size: 3.3vw;
+      }
+
+      section#slider span.slider-name {
+        bottom: 7vw;
+        font-size: 3.5vw;
+      }
+
+      section#slider .more-slider h4 br,
+      section#slider .slide-controls {
+        display: none;
+      }
+
+      section#slider .more-slider a.button {
+        margin-top: 0;
+      }
+
+      section#slider {
+        padding-bottom: 0;
+        margin-left: 0;
+      }
+
+      section#slider .more-slider {
+        padding-left: 0;
+      }
+
+      section#slider .more-slider h4 {
+        font-size: 7vw;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<section id="slider" class="row">
+  <div class="col-xs-12 area">
+    <!-- TEXT FIRST, SLIDER SECOND -->
+    <div class="more-slider col-xs-12 col-sm-6 col-md-3">
+      <article class="content row">
+        <h4 class="section-title">Hospital Gallery</h4>
+<p>Discover our latest healthcare infrastructure project—featuring advanced medical facilities, patient-centric design, and modern architecture. Explore the hospital spaces through the interactive image slider.</p>
+<div class="slide-controls">
+          <span class="slider-previous"><i class="fas fa-angle-left"></i></span>
+          <span class="slider-next"><i class="fas fa-angle-right"></i></span>
+        </div>
+      </article>
+    </div>
+
+    <div class="slider-wrapper col-xs-9">
+      <div class="scroll-wrapper">
+        <ul class="row">
+          <a href="#"><li class="slider"><img src="https://ik.imagekit.io/hic/img/hospitals/1.jpg?tr=w-800,q-60,f-auto" alt="Slide 1">
+            <!-- <span class="slider-name">Title</span><span class="slider-title">Subtitle</span> -->
+          </li></a>
+          <a href="#"><li class="slider"><img src="https://ik.imagekit.io/hic/img/hospitals/2.jpg?tr=w-800,q-60,f-auto" alt="Slide 2">
+            <!-- <span class="slider-name">Title</span><span class="slider-title">Subtitle</span> -->
+          </li></a>
+          <a href="#"><li class="slider"><img src="https://ik.imagekit.io/hic/img/hospitals/3.jpg?tr=w-800,q-60,f-auto" alt="Slide 3">
+            <!-- <span class="slider-name">Title</span><span class="slider-title">Subtitle</span> -->
+          </li></a>
+          <a href="#"><li class="slider"><img src="https://ik.imagekit.io/hic/img/hospitals/4.jpg?tr=w-800,q-60,f-auto" alt="Slide 4">
+            <!-- <span class="slider-name">Title</span><span class="slider-title">Subtitle</span> -->
+          </li></a>
+          <a href="#"><li class="slider"><img src="https://ik.imagekit.io/hic/img/hospitals/5.jpg?tr=w-800,q-60,f-auto" alt="Slide 5">
+            <!-- <span class="slider-name">Title</span><span class="slider-title">Subtitle</span> -->
+          </li></a>
+          <a href="#"><li class="slider"><img src="https://ik.imagekit.io/hic/img/hospitals/6.jpg?tr=w-800,q-60,f-auto" alt="Slide 6">
+            <!-- <span class="slider-name">Title</span><span class="slider-title">Subtitle</span> -->
+          </li></a>
+          <a href="#"><li class="slider"><img src="https://ik.imagekit.io/hic/img/hospitals/7.jpg?tr=w-800,q-60,f-auto" alt="Slide 7">
+            <!-- <span class="slider-name">Title</span><span class="slider-title">Subtitle</span> -->
+          </li></a>
+          <a href="#"><li class="slider"><img src="https://ik.imagekit.io/hic/img/hospitals/8.jpg?tr=w-800,q-60,f-auto" alt="Slide 8">
+            <!-- <span class="slider-name">Title</span><span class="slider-title">Subtitle</span> -->
+          </li></a>
+          <a href="#"><li class="slider"><img src="https://ik.imagekit.io/hic/img/hospitals/9.jpg?tr=w-800,q-60,f-auto" alt="Slide 9">
+            <!-- <span class="slider-name">Title</span><span class="slider-title">Subtitle</span> -->
+          </li></a>
+          <a href="#"><li class="slider"><img src="https://ik.imagekit.io/hic/img/hospitals/10.jpg?tr=w-800,q-60,f-auto" alt="Slide 10">
+            <!-- <span class="slider-name">Title</span><span class="slider-title">Subtitle</span> -->
+          </li></a>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- jQuery CDN -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+  var i = 0;
+
+  $(document).on('click', '.slider-next', function(){
+    var next = i + 10;
+    if (i === 70) {
+      $('div.scroll-wrapper ul.row li').removeAttr('style');
+      $('div.scroll-wrapper ul.row li').attr('style', 'left:0%;-webkit-transition:left 1s;transition:left 1s;');
+      i = 0;
+    } else {
+      $('div.scroll-wrapper ul.row li').removeAttr('style');
+      $('div.scroll-wrapper ul.row li').attr('style', 'left:-' + next + '.1%;-webkit-transition:left 1s;transition:left 1s;');
+      i = next;
+    }
+  });
+
+  $(document).on('click', '.slider-previous', function(){
+    var previous = i - 10;
+    if (i === 0) {
+      $('div.scroll-wrapper ul.row li').removeAttr('style');
+      $('div.scroll-wrapper ul.row li').attr('style', 'left:-70%;-webkit-transition:left 1s;transition:left 1s;');
+      i = 70;
+    } else {
+      $('div.scroll-wrapper ul.row li').removeAttr('style');
+      $('div.scroll-wrapper ul.row li').attr('style', 'left:-' + previous + '.1%;-webkit-transition:left 1s;transition:left 1s;');
+      i = previous;
+    }
+  });
+</script>
+
+</body>
+</html>
