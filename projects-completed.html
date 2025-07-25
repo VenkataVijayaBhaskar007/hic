@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HIC Infrastructure</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600&family=Teko:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+
+
+
+    <!-- for gallery tabs section  -->
+    
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <style>
+      .gallery-title {
+          font-size: 36px;
+          color: var(--primary);
+          text-align: center;
+          font-weight: 500;
+          margin-bottom: 70px;
+          position: relative;
+      }
+
+      .gallery-title:after {
+          content: "";
+          position: absolute;
+          width: 7.5%;
+          left: 46.5%;
+          height: 45px;
+          border-bottom: 1px solid #5e5e5e;
+      }
+
+      .filter-button {
+          font-size: 18px;
+          border: 1px solid var(--primary);
+          border-radius: 5px;
+          color: var(--primary);
+          margin-bottom: 30px;
+          padding: 10px 15px;
+          background-color: transparent;
+          cursor: pointer;
+      }
+
+      .filter-button:hover,
+      .filter-button.active {
+          background-color: var(--primary);
+          color: #fff;
+      }
+
+      .gallery_product {
+          margin-bottom: 30px;
+      }
+
+      .img-responsive {
+          width: 100%;
+          height: 320px;
+          object-fit: cover;
+          border-radius: 6px;
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+      }
+
+      .img-responsive:hover {
+          transform: scale(1.03);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 6px;
+      opacity: 0;
+      transition: 0.3s;
+      z-index: 1;
+    }
+    .eye-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      font-size: 28px;
+      opacity: 0;
+      transition: 0.3s;
+      z-index: 2;
+      pointer-events: none;
+    }
+    .gallery_product:hover .overlay,
+    .gallery_product:hover .eye-icon {
+      opacity: 1;
+    }
+    #img-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #img-modal img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 8px;
+    }
+    #img-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 30px;
+      color: #fff;
+      cursor: pointer;
+    }
+  </style>
+ 
+      
+      
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border position-relative text-primary" style="width: 6rem; height: 6rem;" role="status"></div>
+        <img class="position-absolute top-50 start-50 translate-middle" src="https://ik.imagekit.io/hic/img/icons/loader.png" alt="Icon">
+    </div>
+    <!-- Spinner End -->
+
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-dark p-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="row gx-0 d-none d-lg-flex">
+            <div class="col-lg-7 px-5 text-start">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-3">
+                    <a class="text-body px-2" href="tel:9849877247 / 9246391316"><i class="fa fa-phone-alt text-primary me-2"></i>+91 92463 91316 +91 98498 77247</a>
+                    <a class="text-body px-2" href="mailto:hyinsul@hicinfrastructure.com"><i class="fa fa-envelope-open text-primary me-2"></i>hyinsul@hicinfrastructure.com</a>
+                </div>
+            </div>
+            <div class="col-lg-5 px-5 text-end">
+                <div class="h-100 d-inline-flex align-items-center py-3 me-2">
+                    <a class="text-body px-2" href="terms.html">Terms&Conditions</a>
+                    <a class="text-body px-2" href="privacy.html">PrivacyPolicy</a>
+                </div>
+                <div class="h-100 d-inline-flex align-items-center">
+                    <a class="btn btn-sm-square btn-outline-body me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-sm-square btn-outline-body me-1" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-sm-square btn-outline-body me-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-sm-square btn-outline-body me-0" href=""><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+      <!-- Navbar Start -->
+      <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+        <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+            <h1 class="text-primary m-0"><img class="me-3" src="https://ik.imagekit.io/hic/img/icons/HIC-infrastructure-LOGO.png" alt="Icon"></h1>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link">Home</a>
+                <li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About</a>
+  <div class="dropdown-menu border-0 m-0">
+    <a href="about.html" class="dropdown-item">About Us</a>
+    <a href="vision-mission.html" class="dropdown-item">Our Ethos</a>
+    <a href="values-ambitions.html" class="dropdown-item">Our Commitments</a>
+    <a href="innovation-safety.html" class="dropdown-item">Our Foresight</a>
+  </div>
+</li>
+
+         <div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Services</a>
+    <div class="dropdown-menu border-0 m-0">
+        <a href="service.html" class="dropdown-item">All Services</a>
+        <a href="interior-solutions.html" class="dropdown-item">Interior Solutions</a>
+        <a href="civil-constructions.html" class="dropdown-item">Civil Constructions</a>
+        <a href="facade-work.html" class="dropdown-item">Facade Work</a>
+        <a href="solar-rooftop.html" class="dropdown-item">Solar Rooftop</a>
+    </div>
+</div>
+
+                <a href="clients.html" class="nav-item nav-link">Clients</a>
+               <div class="nav-item dropdown">
+    <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown">Projects</a>
+    <div class="dropdown-menu border-0 m-0">
+       
+ <a href="projects-ongoing.html" class="dropdown-item ">Current Initiatives</a>
+<a href="projects-completed.html" class="dropdown-item active">Delivered Projects</a>
+<a href="civil-projects.html" class="dropdown-item">Civil Project Gallery</a>
+<a href="interior-projects.html" class="dropdown-item">Interior Project Gallery</a>
+<a href="facade-projects.html" class="dropdown-item">Facade Project Gallery</a>
+    </div>
+</div>
+
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu border-0 m-0">
+                        <a href="gallery.html" class="dropdown-item">HIC Gallery</a>
+<a href="feature.html" class="dropdown-item">Our Features</a>
+                       
+                        <a href="team.html" class="dropdown-item">Milestones</a>
+                        <a href="appointment.html" class="dropdown-item">Appointment</a>
+                        <a href="faq.html" class="dropdown-item">FAQ's</a>
+ <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+               <!--           <a href="404.html" class="dropdown-item">404 Page</a> -->
+                    </div>
+                </div>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+            <a href="get-quote.html" class="btn btn-primary py-2 px-4 d-none d-lg-block">Get Quote</a>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header-projects-completed py-5 mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <h1 class="display-1 text-white animated slideInDown">Delivered Projects</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb text-uppercase mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Projects</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Delivered Projects</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+
+   
+<!-- Delivered Projects Section Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <!-- Left Side: Text -->
+            <div class="col-lg-6">
+                <h4 class="section-title">Delivered Projects</h4>
+                <h1 class="display-6 mb-4">Excellence Built Over Time</h1>
+                <p class="mb-4">
+                    At HIC Infrastructure, our completed projects stand as lasting proof of our commitment to quality, innovation, and precision. From commercial office spaces and IT parks to industrial plants and corporate headquarters, we have delivered high-performing infrastructure tailored to each client's unique vision.
+                </p>
+                <p class="mb-4">
+                    Our multidisciplinary approach—spanning turnkey interiors, civil construction, façade systems, and solar energy—has enabled us to execute diverse projects with consistency and care. Every structure is thoughtfully designed, expertly engineered, and meticulously built.
+                </p>
+                <p class="mb-4">
+                    Collaborating closely with clients across sectors like technology, healthcare, manufacturing, and logistics, our team has successfully handed over functional, aesthetic, and future-ready environments that continue to add value long after completion.
+                </p>
+                <p>
+                    We take pride in not just delivering buildings, but in shaping experiences—spaces that empower productivity, foster innovation, and reflect the ambitions of the businesses within them.
+                </p>
+            </div>
+
+            <!-- Right Side: Image -->
+            <div class="col-lg-6 text-center">
+                <div class="interior-image-wrapper">
+                    <img src="https://ik.imagekit.io/hic/completedprojects/1%20Food%20Court/MY%20home/1.jpeg?tr=w-800,q-60,f-auto" alt="Delivered Project Showcase" class="img-fluid rounded-image shadow">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Delivered Projects Section End -->
+
+
+
+
+
+
+
+
+
+
+<!-- Completed Projects Section -->
+<div class="container">
+    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+      <h4 class="section-title">Completed Projects Gallery</h4>
+      <h1 class="display-5 mb-4">Explore Our Portfolio of Completed Works</h1>
+    </div>
+  
+    <!-- Filter Buttons -->
+    <div class="text-center mb-4">
+      <button class="filter-button active" data-filter="all">All</button>
+     
+      <button class="filter-button" data-filter="hotels">Hotels</button>
+      <button class="filter-button" data-filter="corporate">Corporate</button>
+      <button class="filter-button" data-filter="hospitality">Hospitality</button>
+      <button class="filter-button" data-filter="food-court">Food Court</button>
+      <button class="filter-button" data-filter="commercial">Commercial Space</button>
+      <button class="filter-button" data-filter="residential">Residential</button>
+      <button class="filter-button" data-filter="medical-lab">Medical Lab</button>
+      <button class="filter-button" data-filter="airport">Airport</button>
+    </div>
+  
+    <!-- Image Gallery -->
+    <div class="row">
+
+  
+      <!-- Hotels -->
+      <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+        <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/1 Radison hotel Vizaq/1.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/1 Radison hotel Vizaq/2.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/1 Radison hotel Vizaq/3.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/1 Radison hotel Vizaq/4.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/1 Radison hotel Vizaq/5.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/2 Ista hotel/Istana.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+      
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/2 Ista hotel/Deori.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">    
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/1 Radison hotel Vizaq/1.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/1 Radison hotel Vizaq/16.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/3 Radisson blu Vizaq/1.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/3 Radisson blu Vizaq/2.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/3 Radisson blu Vizaq/3.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hotels">
+            <img src="https://ik.imagekit.io/hic/completedprojects/2 Hotels/3 Radisson blu Vizaq/4.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+       
+
+  
+      <!-- Corporate -->
+      <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+        <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/Hetero 12th floor/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+    </div>
+    <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+        <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/Hetero 12th floor/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+    </div>
+    <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+        <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/Hetero 12th floor/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+    </div>
+    <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+        <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/Hetero 12th floor/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+    </div>
+
+
+    <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+        <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/2 MSN/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+    </div>
+    <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+        <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/2 MSN/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+    </div>
+    <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+        <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/2 MSN/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+    </div>
+    <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+        <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/2 MSN/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+    </div>
+    <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+        <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/2 MSN/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+    </div>
+
+
+
+
+      <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+        <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/1 indeed/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/1 indeed/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/1 indeed/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/1 indeed/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery"> 
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/1 indeed/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/2 glu/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/2 glu/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/2 glu/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/2 glu/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/2 glu/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+
+
+
+     
+
+
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/3 NCL/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/3 NCL/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/3 NCL/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/3 NCL/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/3 NCL/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/4 Vodaphone/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/4 Vodaphone/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/4 Vodaphone/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/4 Vodaphone/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter corporate">
+            <img src="https://ik.imagekit.io/hic/completedprojects/3 Corporate/4 Vodaphone/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+       
+  
+      <!-- Hospitality -->
+      <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+        <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/1 Cyberlife club house/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/1 Cyberlife club house/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/1 Cyberlife club house/IMG_1769.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/1 Cyberlife club house/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/2 Grande club house/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/2 Grande club house/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/2 Grande club house/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/2 Grande club house/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/3 Sattva necklace pride/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery"> 
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/3 Sattva necklace pride/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">    
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/3 Sattva necklace pride/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/3 Sattva necklace pride/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/3 Sattva necklace pride/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/3 Sattva necklace pride/6.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/4 Serene club house/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/4 Serene club house/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/4 Serene club house/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter hospitality">
+            <img src="https://ik.imagekit.io/hic/completedprojects/4 Hospitality/4 Serene club house/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        
+
+
+
+      <!-- Food Court -->
+      <div class="gallery_product col-lg-4 col-md-6 filter food-court">
+        <img src="https://ik.imagekit.io/hic/completedprojects/1 Food Court/MY home/1.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+      <div class="gallery_product col-lg-4 col-md-6 filter food-court">
+        <img src="https://ik.imagekit.io/hic/completedprojects/1 Food Court/MY home/2.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter food-court">
+            <img src="https://ik.imagekit.io/hic/completedprojects/1 Food Court/MY home/3.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter food-court">
+            <img src="https://ik.imagekit.io/hic/completedprojects/1 Food Court/MY home/4.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter food-court">
+            <img src="https://ik.imagekit.io/hic/completedprojects/1 Food Court/MY home/5.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+
+        </div>
+    
+
+
+
+        
+  
+      <!-- Commercial Space -->
+      <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+        <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/1 Sattva knowledge capital/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/1 Sattva knowledge capital/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/1 Sattva knowledge capital/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/1 Sattva knowledge capital/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/1 Sattva knowledge capital/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/2 Sattva knowledge city/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/2 Sattva knowledge city/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/2 Sattva knowledge city/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/2 Sattva knowledge city/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/2 Sattva knowledge city/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/2 Sattva knowledge city/6.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/3 Vamshiram/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/3 Vamshiram/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/3 Vamshiram/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/3 Vamshiram/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter commercial">
+            <img src="https://ik.imagekit.io/hic/completedprojects/5 Comercial space/3 Vamshiram/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+       
+
+  
+      <!-- Residential -->
+      <div class="gallery_product col-lg-4 col-md-6 filter residential">
+        <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/1 GAR penthouse/1.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/1 GAR penthouse/2.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/1 GAR penthouse/3.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/1 GAR penthouse/4.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/1 GAR penthouse/5.jpeg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/3 Zenith/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/3 Zenith/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/3 Zenith/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/3 Zenith/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/3 Zenith/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/3 Zenith/6.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <!-- <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/7 Medical Lab/1 GVK Nacharam hyd/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/7 Medical Lab/1 GVK Nacharam hyd/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/7 Medical Lab/1 GVK Nacharam hyd/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/7 Medical Lab/1 GVK Nacharam hyd/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/7 Medical Lab/1 GVK Nacharam hyd/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter residential">
+            <img src="https://ik.imagekit.io/hic/completedprojects/6 Residential/7 Medical Lab/1 GVK Nacharam hyd/6.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+        </div>
+         -->
+        
+
+        
+
+  
+      <!-- Medical Lab -->
+      <div class="gallery_product col-lg-4 col-md-6 filter medical-lab">
+        <img src="https://ik.imagekit.io/hic/completedprojects/7 Medical Lab/1 GVK Nacharam hyd/1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+      <div class="gallery_product col-lg-4 col-md-6 filter medical-lab">
+        <img src="https://ik.imagekit.io/hic/completedprojects/7 Medical Lab/1 GVK Nacharam hyd/2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+      <div class="gallery_product col-lg-4 col-md-6 filter medical-lab">
+        <img src="https://ik.imagekit.io/hic/completedprojects/7 Medical Lab/1 GVK Nacharam hyd/3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+      <div class="gallery_product col-lg-4 col-md-6 filter medical-lab">
+        <img src="https://ik.imagekit.io/hic/completedprojects/7 Medical Lab/1 GVK Nacharam hyd/4.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+      <div class="gallery_product col-lg-4 col-md-6 filter medical-lab">
+        <img src="https://ik.imagekit.io/hic/completedprojects/7 Medical Lab/1 GVK Nacharam hyd/5.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+      <div class="gallery_product col-lg-4 col-md-6 filter medical-lab">
+        <img src="https://ik.imagekit.io/hic/completedprojects/7 Medical Lab/1 GVK Nacharam hyd/6.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+  
+      <!-- Airport -->
+     
+      <div class="gallery_product col-lg-4 col-md-6 filter airport">
+        <img src="https://ik.imagekit.io/hic/completedprojects/8 Airport/GMR Delhi (Airport)/GMR-Delhi-Airport-1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+      <div class="gallery_product col-lg-4 col-md-6 filter airport">
+        <img src="https://ik.imagekit.io/hic/completedprojects/8 Airport/GMR Delhi (Airport)/IMG_0675.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+      <div class="gallery_product col-lg-4 col-md-6 filter airport">
+        <img src="https://ik.imagekit.io/hic/completedprojects/8 Airport/GMR Delhi (Airport)/IMG_0677.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+      <div class="gallery_product col-lg-4 col-md-6 filter airport">
+        <img src="https://ik.imagekit.io/hic/completedprojects/8 Airport/GMR Delhi (Airport)/IMG_0803.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+      <div class="gallery_product col-lg-4 col-md-6 filter airport">
+        <img src="https://ik.imagekit.io/hic/completedprojects/8 Airport/GMR Delhi (Airport)/IMG_1010.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+      </div>
+        <div class="gallery_product col-lg-4 col-md-6 filter airport">
+            <img src="https://ik.imagekit.io/hic/completedprojects/8 Airport/GMR Hyd/GMR FC 1.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+            </div>
+            <div class="gallery_product col-lg-4 col-md-6 filter airport">
+                <img src="https://ik.imagekit.io/hic/completedprojects/8 Airport/GMR Hyd/GMR FC 2.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+                </div>
+                <div class="gallery_product col-lg-4 col-md-6 filter airport">
+                    <img src="https://ik.imagekit.io/hic/completedprojects/8 Airport/GMR Hyd/GMR FC 3.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+                    </div>
+                    <div class="gallery_product col-lg-4 col-md-6 filter airport">
+                        <img src="https://ik.imagekit.io/hic/completedprojects/8 Airport/GMR Delhi (Airport)/GMR Delhi Airport.jpg?tr=w-800,q-60,f-auto" class="img-responsive" alt="HIC Infrastructure Projects Gallery">
+                      </div>
+    </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-body footer mt-5 pt-5 px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-light mb-4">Quick Links</h3>
+                    <a class="btn btn-link" href="">About Us</a>
+                    <a class="btn btn-link" href="">Contact Us</a>
+                    <a class="btn btn-link" href="">Services</a>
+                    <a class="btn btn-link" href="">Our Clients</a>
+                    <a class="btn btn-link" href="">Terms & Conditions</a>
+                    <a class="btn btn-link" href="">Privacy Policy</a>
+                   <div class="d-flex pt-4">
+                        <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-square btn-outline-body me-1" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-square btn-outline-body me-0" href=""><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-light mb-4">Head Office – Hyderabad</h3>
+                    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.89946574470434!2d78.35872137479933!3d17.44096840000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb939d94f42079%3A0x8c9dd412fa5fcb22!2sHIC%20Infrastructure!5e0!3m2!1sen!2sin!4v1748409899821!5m2!1sen!2sin" 
+        width="100%"  height="100"   allowfullscreen=""   loading="lazy"   referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>2-37/133, 3rd Floor, HIC Towers, Vinayaknagar, Gachibowli, Hyderabad – 500032</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+91 9849877247 / 9246391316</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>hyinsul@hicinfrastructure.com</p>
+                
+                    <h3 class="text-light mb-4 mt-4">Vishakapatnam</h3>
+                    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d237.89946574470434!2d78.35872137479933!3d17.44096840000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb939d94f42079%3A0x8c9dd412fa5fcb22!2sHIC%20Infrastructure!5e0!3m2!1sen!2sin!4v1748409899821!5m2!1sen!2sin" 
+        width="100%"  height="100"   allowfullscreen=""   loading="lazy"   referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>49-38-14/8, NGO’s Colony, Akkayapalem, Visakapatnam, A.P – 530016</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+91 9849877247 / 9246391316</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>hyinsul@hicinfrastructure.com</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+            <h3 class="text-light mb-4">Bengaluru</h3>
+                    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3888.0317683382646!2d77.672989!3d12.969819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMTLCsDU4JzExLjQiTiA3N8KwNDAnMjIuOCJF!5e0!3m2!1sen!2sin!4v1752253604198!5m2!1sen!2sin" 
+        width="100%"  height="100"   allowfullscreen=""   loading="lazy"   referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>4, 3RD Main, 7th Cross, L.B. Nagar, Vimanapura Post, Bengalore – 560017</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+91 98861 30533 / 9845425476</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>hyinsul@hicinfrastructure.com</p>
+                
+                    <h3 class="text-light mb-4 mt-4">Modular Furniture Unit</h3>
+                    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4822.338939653127!2d78.43926450346201!3d17.27462160021284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcbbd00645cf1d7%3A0x1c821888808317c9!2sModular%20Furniture%20Unit!5e0!3m2!1sen!2sin!4v1752254197626!5m2!1sen!2sin" 
+        width="100%"  height="100"   allowfullscreen=""   loading="lazy"   referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>Survey No. 281, Mamidipally, Kandukar, Pahadisharif – 500005</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>+91 9246391319</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>hyinsul@hicinfrastructure.com</p>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <h3 class="text-light mb-4">Services</h3>
+                    <a class="btn btn-link" href="">Interior Solutions</a>
+                    <a class="btn btn-link" href="">Civil Constructions</a>
+                    <a class="btn btn-link" href="">Facade Work</a>
+                    <a class="btn btn-link" href="">Solar Rooftop Solutions</a>
+
+                    <h3 class="text-light mb-4 mt-4">Projects</h3>
+                    <a class="btn btn-link" href="">Completed Projects</a>
+                    <a class="btn btn-link" href="">Ongoing Projects</a>
+                    <a class="btn btn-link" href="">Facade Work</a>
+                    <a class="btn btn-link" href="">Solar Rooftop Solutions</a>
+</div>
+
+            </div>
+        </div>
+        <div class="container-fluid copyright">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a href="#">HIC Infrastructure</a>, All Right Reserved.
+                    </div>
+                    <!-- <div class="col-md-6 text-center text-md-end">
+                        Designed By <a href="https://skillzenic.com">Skill Zenic</a>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+     <!-- Back to Top -->
+     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+
+
+
+     <script>
+       $(document).ready(function () {
+           $(".filter-button").click(function () {
+               var value = $(this).attr('data-filter');
+               $(".filter-button").removeClass("active");
+               $(this).addClass("active");
+ 
+               if (value == "all") {
+                   $('.filter').show('1000');
+               } else {
+                   $(".filter").not('.' + value).hide('300');
+                   $('.filter').filter('.' + value).show('300');
+               }
+           });
+       });
+   </script>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ <!-- Modal -->
+ <div id="img-modal">
+   <span id="img-close">&times;</span>
+   <img id="img-preview" src="" alt="Preview">
+ </div>
+ 
+ <script>
+   document.addEventListener("DOMContentLoaded", function () {
+     document.querySelectorAll(".gallery_product img").forEach(function (img) {
+       // Create eye icon element
+       const eyeIcon = document.createElement("i");
+       eyeIcon.className = "fa fa-eye";
+       eyeIcon.style.position = "absolute";
+       eyeIcon.style.top = "50%";
+       eyeIcon.style.left = "50%";
+       eyeIcon.style.transform = "translate(-50%, -50%)";
+       eyeIcon.style.fontSize = "24px";
+       eyeIcon.style.color = "#fff";
+       eyeIcon.style.backgroundColor = "rgba(0,0,0,0.5)";
+       eyeIcon.style.padding = "10px";
+       eyeIcon.style.borderRadius = "50%";
+       eyeIcon.style.display = "none";
+       eyeIcon.style.pointerEvents = "none";
+       eyeIcon.style.zIndex = "10";
+ 
+       // Create a wrapper for positioning
+       const wrapper = document.createElement("div");
+       wrapper.style.position = "relative";
+       wrapper.style.display = "inline-block";
+ 
+       img.parentNode.insertBefore(wrapper, img);
+       wrapper.appendChild(img);
+       wrapper.appendChild(eyeIcon);
+ 
+       // Show icon on hover
+       wrapper.addEventListener("mouseenter", function () {
+         eyeIcon.style.display = "block";
+       });
+ 
+       wrapper.addEventListener("mouseleave", function () {
+         eyeIcon.style.display = "none";
+       });
+ 
+       // Click event for image preview
+       img.addEventListener("click", function () {
+         document.getElementById("img-preview").src = img.src.split('?')[0];
+         document.getElementById("img-modal").style.display = "flex";
+       });
+     });
+ 
+     document.getElementById("img-close").addEventListener("click", function () {
+       document.getElementById("img-modal").style.display = "none";
+     });
+ 
+     document.getElementById("img-modal").addEventListener("click", function (e) {
+       if (e.target === this) this.style.display = "none";
+     });
+   });
+ </script>
+ 
+ 
+ 
+   
+ 
+ 
+   
+ 
+     <!-- JavaScript Libraries -->
+     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+     <script src="lib/wow/wow.min.js"></script>
+     <script src="lib/easing/easing.min.js"></script>
+     <script src="lib/waypoints/waypoints.min.js"></script>
+     <script src="lib/counterup/counterup.min.js"></script>
+     <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+     <script src="lib/tempusdominus/js/moment.min.js"></script>
+     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+ 
+     <!-- Template Javascript -->
+     <script src="js/main.js"></script>
+ </body>
+ 
+ </html>
